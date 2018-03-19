@@ -1,0 +1,7 @@
+{
+  "url_base" : "http://localhost:8000",
+  "get_read" : "/inspections/read",
+  "get_stats" : "/inspections/stats",
+  "post_add" : "/inspections/add",
+  "get_verify" : "/inspections/verify"
+}

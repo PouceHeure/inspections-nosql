@@ -1,0 +1,5 @@
+{
+  "url" : "mongodb://localhost:27017/",
+  "base" : "DBLP",
+  "table" : "inspection"
+}

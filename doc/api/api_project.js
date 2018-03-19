@@ -1,0 +1,1 @@
+define({  "name": "Inspection API - IBO2",  "version": "0.0.1",  "description": "API developped for an university project",  "sampleUrl": false,  "defaultVersion": "0.0.0",  "apidoc": "0.3.0",  "generator": {    "name": "apidoc",    "time": "2018-03-18T15:37:46.099Z",    "url": "http://apidocjs.com",    "version": "0.17.6"  }});

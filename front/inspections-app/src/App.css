@@ -1,0 +1,91 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+#root{
+  margin:5px;
+}
+
+.title_restaurant,.title_inspection{
+  color:#99CCFF;
+}
+
+.info{
+  color:#99CC88;
+}
+
+.research{
+  position: absolute !important;
+  padding: 10px;
+
+}
+
+.jumbotron {
+  margin: 10px;
+}
+
+
+.inspection_info {
+  color:#17a2b8
+}
+
+.restaurant_info{
+  color:#28a745
+}
+
+.progress_add{
+  position: fixed;
+  background-color: #FFF;
+  width:100%;
+  z-index: 10;
+  padding: 10px;
+}
+
+.page{
+  max-width: 5% !important;
+  background-color: #FFF;
+}
+
+.page:hover{
+  max-width: 100% !important;
+}
+
+.title_tab{
+  margin-top:2px;
+  padding: 15px;
+  background-color: #EEE;
+  color:#666
+}
+
+.button_home{
+  margin: 10px;
+}
+
+.body_tab{
+  margin: 10px;
+}

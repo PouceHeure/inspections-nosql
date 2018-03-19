@@ -1,0 +1,447 @@
+<
+ Form onSubmit = {
+   this.onSubmitAdd.bind(this)
+ } >
+ <
+ Col sm = {
+   {
+     size: 8,
+     offset: 2
+   }
+ } > { /* Check add or load */ } <
+ Row >
+ <
+ Col >
+ <
+ FormGroup inline check sm = {
+   6
+ } >
+ <
+ Label check size = "lg" >
+ <
+ Input type = "radio"
+ defaultChecked = {
+   true
+ }
+ name = "addLoad"
+ id = "add"
+ onChange = {
+   this.onChangeCheck
+ }
+ value = {
+   this.props.value
+ }
+ />{' '}
+ Add new restaurant <
+ /Label> <
+ /FormGroup> <
+ /Col> <
+ Col >
+ <
+ FormGroup inline check sm = {
+   6
+ } >
+ <
+ Label check size = "lg" >
+ <
+ Input type = "radio"
+ name = "addLoad"
+ id = "load"
+ onChange = {
+   this.onChangeCheck
+ }
+ />{' '}
+ Load restaurant already saved <
+ /Label> <
+ /FormGroup> <
+ /Col> <
+ /Row>
+
+ <
+ Col >
+ <
+ Row > { /* form add restaurant */ }
+
+ <
+ Progress bar color = "success"
+ value = {
+   this.state.resaurantPercent / 3
+ } > < h2 > {
+   Math.round(this.state.resaurantPercent) + "%"
+ } < /h2></Progress >
+
+ {
+   this.state.addRestaurant ?
+   <
+   Col >
+   <
+   h2 className = "restaurant_info" > New Restaurant < /h2> <
+   FormGroup row >
+   <
+   Label
+   for = "name"
+   sm = {
+     3
+   } > Name < /Label> <
+   Col sm = {
+     9
+   } >
+   <
+   Input type = "name"
+   name = "name"
+   onChange = {
+     this.onChangeRestaurant
+   }
+   /> <
+   /Col> <
+   /FormGroup> <
+   FormGroup row >
+   <
+   Label
+   for = "borough"
+   sm = {
+     3
+   } > Borough < /Label> <
+   Col sm = {
+     9
+   } >
+   <
+   Input type = "borough"
+   name = "borough"
+   onChange = {
+     this.onChangeRestaurant
+   }
+   /> <
+   /Col> <
+   /FormGroup> <
+   FormGroup row >
+   <
+   Label
+   for = "buildingnum"
+   sm = {
+     3
+   } > Buildingnum < /Label> <
+   Col sm = {
+     9
+   } >
+   <
+   Input type = "buildingnum"
+   name = "buildingnum"
+   onChange = {
+     this.onChangeRestaurant
+   }
+   /> <
+   /Col> <
+   /FormGroup > <
+   FormGroup row >
+   <
+   Label
+   for = "street"
+   sm = {
+     3
+   } > Street < /Label> <
+   Col sm = {
+     9
+   } >
+   <
+   Input type = "street"
+   name = "street"
+   onChange = {
+     this.onChangeRestaurant
+   }
+   /> <
+   /Col> <
+   /FormGroup> <
+   FormGroup row >
+   <
+   Label
+   for = "phone"
+   sm = {
+     3
+   } > Phone < /Label> <
+   Col sm = {
+     9
+   } >
+   <
+   Input type = "phone"
+   name = "phone"
+   onChange = {
+     this.onChangeRestaurant
+   }
+   /> <
+   /Col> <
+   /FormGroup>
+   <
+   FormGroup row >
+   <
+   Label
+   for = "zipcode"
+   sm = {
+     3
+   } > Zipcode < /Label> <
+   Col sm = {
+     9
+   } >
+   <
+   Input type = "zipcode"
+   name = "zipcode"
+   onChange = {
+     this.onChangeRestaurant
+   }
+   /> <
+   /Col> <
+   /FormGroup><
+   FormGroup row >
+   <
+   Label
+   for = "cuisineType"
+   sm = {
+     3
+   } > Cuisine Type < /Label> <
+   Col sm = {
+     9
+   } >
+   <
+   Input type = "cuisineType"
+   name = "cuisineType"
+   onChange = {
+     this.onChangeRestaurant
+   }
+   /> <
+   /Col> <
+   /FormGroup> <
+   /Col>
+
+   :
+   null
+ }
+
+ { /* form load restaurant */ }
+
+
+ {
+   !this.state.addRestaurant ?
+
+   <
+   Col >
+   <
+   h2 className = "restaurant_info" > Load Restaurant < /h2> <
+   FormGroup row >
+   <
+   Label
+   for = "phone"
+   sm = {
+     3
+   } > Phone < /Label> <
+   Col sm = {
+     9
+   } >
+   <
+   Input type = "phone"
+   name = "phone"
+   onChange = {
+     this.onVerifyRestaurant
+   }
+   /> <
+   /Col> <
+   /FormGroup>
+
+   <
+   FormGroup row >
+   <
+   Label
+   for = "zipcode"
+   sm = {
+     3
+   } > Zip code < /Label> <
+   Col sm = {
+     9
+   } >
+   <
+   Input type = "zipcode"
+   name = "zipcode"
+   onChange = {
+     this.onVerifyRestaurant
+   }
+   /> <
+   /Col> <
+   /FormGroup> <
+   FormGroup >
+   <
+   Button onClick = {
+     this.onSubmitVerify.bind(this)
+   }
+   color = {
+     bgColor
+   } > Verify < /Button>{' '} <
+   /FormGroup> <
+   /Col>: null
+ } <
+ /Row> <
+ /Col>
+
+
+
+ { /*Inspections information*/ } <
+ Col sm = {
+   12
+ } >
+ <
+ Row >
+
+ <
+ Progress bar color = "info"
+ value = {
+   this.state.inspectionPercent / 3
+ } > < h2 > {
+   Math.round(this.state.inspectionPercent) + "%"
+ } < /h2> </Progress >
+
+ <
+ Col >
+ <
+ h2 className = "inspection_info" > Inspection Information < /h2> <
+ FormGroup row >
+ <
+ Label
+ for = "date"
+ sm = {
+   3
+ } > Dates < /Label> <
+ Col sm = {
+   9
+ } >
+ <
+ Input type = "date"
+ name = "inspectionDate"
+ onChange = {
+   this.onChangeInspection
+ }
+ /> <
+ /Col> <
+ /FormGroup> <
+ FormGroup row >
+ <
+ Label
+ for = "violationCode"
+ sm = {
+   3
+ } > violationCode < /Label> <
+ Col sm = {
+   9
+ } >
+ <
+ Input onChange = {
+   this.props.onChange
+ }
+ type = "text"
+ name = "violationCode"
+ onChange = {
+   this.onChangeInspection
+ }
+ /> <
+ /Col> <
+ /FormGroup> <
+ FormGroup row >
+ <
+ Label
+ for = "violationDescription"
+ sm = {
+   3
+ } > violationDescription < /Label> <
+ Col sm = {
+   9
+ } >
+ <
+ Input onChange = {
+   this.props.onChange
+ }
+ type = "text"
+ name = "violationDescription"
+ onChange = {
+   this.onChangeInspection
+ }
+ /> <
+ /Col> <
+ /FormGroup> <
+ FormGroup row >
+ <
+ Label
+ for = "criticalFlag"
+ sm = {
+   3
+ } > Type < /Label> <
+ Col sm = {
+   9
+ } >
+ <
+ Input onChange = {
+   this.props.onChange
+ }
+ type = "text"
+ name = "criticalFlag"
+ onChange = {
+   this.onChangeInspection
+ }
+ /> <
+ /Col> <
+ /FormGroup> <
+ FormGroup row >
+ <
+ Label
+ for = "score"
+ sm = {
+   3
+ } > Score < /Label> <
+ Col sm = {
+   9
+ } >
+ <
+ Input onChange = {
+   this.props.onChange
+ }
+ type = "text"
+ name = "score"
+ onChange = {
+   this.onChangeInspection
+ }
+ /> <
+ /Col> <
+ /FormGroup> <
+ FormGroup row >
+ <
+ Label
+ for = "grade"
+ sm = {
+   3
+ } > Grade < /Label> <
+ Col sm = {
+   9
+ } >
+ <
+ Input onChange = {
+   this.props.onChange
+ }
+ type = "text"
+ name = "grade"
+ onChange = {
+   this.onChangeInspection
+ }
+ /> <
+ /Col> </FormGroup>
+
+ { /* Submit part */ } <
+ FormGroup row >
+ <
+ Col >
+ <
+ Button > Submit < /Button> <
+ /Col> <
+ /FormGroup> <
+ /Col> <
+ /Row> <
+ /Col>
+
+ <
+ /Col> <
+ /Form>
