@@ -1,4 +1,4 @@
-import mongodbConfig from "./mongodbConfig.json"
+var mongodbConfig = require("./mongodb-config.json")
 
 var express = require('express');
 
@@ -9,6 +9,8 @@ var urlDB = mongodbConfig.url;
 var app = express();
 
 const bodyParser = require('body-parser');
+
+
 
 //app.use(bodyParser);
 app.use(function(req, res, next) {
