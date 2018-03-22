@@ -23,7 +23,7 @@ class App extends React.Component {
   }
 
   toggle(tab) {
-    if (debugMode || (this.state.activeTab !== tab && ((tab != 3 && tab != 4) || this.state.connected))) {
+    if (debugMode || ((tab != 3 && tab != 4) || this.state.connected)) {
       this.setState({
         activeTab: tab
       });
@@ -90,7 +90,7 @@ class App extends React.Component {
             <p className="lead">Research and add easily and fastly</p>
             <ModalConnect sendData={this.getData.bind(this)} connected={bgColor} isConnected={this.state.connected} />
            <hr className="my-2" />
-           <p>Add feature only be used by an admistrator, please connect with admin account</p>
+         <p>Add and Request features only be used by an admistrator, please connect with admin account</p>
              <h6>With this app you can ...</h6>
              <ButtonGroup size="lg">
                   <Button className="button_home" onClick={() => { this.toggle('2'); }} color="primary">Research</Button>

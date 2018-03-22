@@ -55,25 +55,12 @@ class FormsResearch extends React.Component {
 
 
   stringToArrayJSON(value){
-    if(this.state.kind == "aggregate"){
-      /*value = value.replace("[","")
-      value = value.replace("]","")
-      var tabvalue = value.split(',')
-      var json = []
-      console.log(tabvalue.length)
-      for(var i in tabvalue){
-        json.push(JSON.parse(tabvalue[i]))
-      }
-      return json*/
-
-
-      valueRequest = {"q":JSON.parse(value)}
-      console.log(valueRequest)
+    try {
+      var valueRequest = {"q":JSON.parse(value)}
       return valueRequest
-    }
-
-    var valueRequest = {"q":JSON.parse(value)}
-    return valueRequest
+      } catch(e) {
+        return null
+     }
   }
 
   onChange(event){
@@ -105,12 +92,17 @@ class FormsResearch extends React.Component {
   onClick(event){
     event.preventDefault();
     var url = urlQuery+this.state.kind
-    this.requestAPI(url,this.stringToArrayJSON(this.state.query)).then(function(resolve){
+    var q = this.stringToArrayJSON(this.state.query)
+    if(q != null){
+    this.requestAPI(url,q).then(function(resolve){
       console.log(resolve)
       //this.state.response = resolve
       //this.setState({"response":JSON.stringify(resolve)})
       this.setState({"response":resolve})
     }.bind(this))
+    }else{
+      alert("Bad request")
+    }
    }
 
 //{"idRestaurant":12}
