@@ -25,6 +25,7 @@ app.use(function(req, res, next) {
   return next();
 });
 
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 
@@ -420,7 +421,7 @@ app.get('/inspections/read', function(req, res) {
  * @param  {type} '/inspections/add' route for using the api
  */
 app.post('/inspections/add', function(req, res) {
-  console.dir(req.body);
+  console.log(req.body);
   res.send(JSON.stringify(req.body));
   MongoClient.connect(urlDB, function(err, db) {
   if (err) throw err;
@@ -431,6 +432,39 @@ app.post('/inspections/add', function(req, res) {
     db.close();
   });
 });
+});
+
+
+app.post('/inspections/query/find', function(req, res) {
+  console.log(req.body);
+  MongoClient.connect(urlDB, function(err, db) {
+    if (err)
+      throw err;
+    var dbo = db.db(mongodbConfig.base);
+    console.log(req.body.q)
+    dbo.collection(mongodbConfig.table).find(req.body.q).limit(10).toArray(function(err, result) {
+      if (err)
+        throw err;
+      res.json(result) // send the rrequest result
+      db.close(); // close the connection
+    });
+  });
+});
+
+app.post('/inspections/query/aggregate', function(req, res) {
+  MongoClient.connect(urlDB, function(err, db) {
+    if (err)
+      throw err;
+    var dbo = db.db(mongodbConfig.base);
+    console.log(req.body)
+    console.log(req.body.data)
+    dbo.collection(mongodbConfig.table).aggregate(req.body.q).limit(10).toArray(function(err, result) {
+      if (err)
+        throw err;
+      res.json(result) // send the rrequest result
+      db.close(); // close the connection
+    });
+  });
 });
 
 app.listen(8000);

@@ -23,9 +23,11 @@ class ModalConnect extends React.Component {
   }
 
   toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
+    if(!this.props.isConnected){
+      this.setState({
+        modal: !this.state.modal
+      });
+    }
   }
 
   send(){

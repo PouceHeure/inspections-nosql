@@ -3,5 +3,8 @@
   "get_read" : "/inspections/read",
   "get_stats" : "/inspections/stats",
   "post_add" : "/inspections/add",
-  "get_verify" : "/inspections/verify"
+  "get_verify" : "/inspections/verify",
+  "post_find": "/inspections/query/find",
+  "post_aggregate": "/inspections/query/aggregate",
+  "post_query" : "/inspections/query/"
 }

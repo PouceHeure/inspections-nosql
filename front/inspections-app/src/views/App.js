@@ -1,11 +1,13 @@
 import React from 'react';
 import Research from './Research';
 import Add from './Add';
+import Request from './Request'
 import ModalConnect from './../components/modals/ModalConnect'
 
-import {ButtonGroup, Jumbotron,TabContent, TabPane, Nav, NavItem, NavLink,  Button } from 'reactstrap';
+import {ButtonGroup, Jumbotron,TabContent, TabPane, Nav, NavItem, NavLink,  Button,Row } from 'reactstrap';
 import classnames from 'classnames';
 
+const debugMode = false;
 
 
 class App extends React.Component {
@@ -21,7 +23,7 @@ class App extends React.Component {
   }
 
   toggle(tab) {
-    if (this.state.activeTab !== tab && this.state.connected) {
+    if (debugMode || (this.state.activeTab !== tab && ((tab != 3 && tab != 4) || this.state.connected))) {
       this.setState({
         activeTab: tab
       });
@@ -68,21 +70,32 @@ class App extends React.Component {
               Add
             </NavLink>
           </NavItem>
+          <NavLink
+            className={classnames({ active: this.state.activeTab === '4' })}
+            onClick={() => { this.toggle('4'); }}>
+            Request
+          </NavLink>
+
+          <NavItem>
+            <NavLink>
+            <ModalConnect sendData={this.getData.bind(this)} isConnected={this.state.connected} connected={bgColor} />
+          </NavLink>
+        </NavItem>
 
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
            <Jumbotron>
-             <h1 className="display-3">Inspection App</h1>
-           <ModalConnect sendData={this.getData.bind(this)} connected={bgColor} />
-             <p className="lead">Research, add and vizualize easily and fastly</p>
-             <hr className="my-2" />
-             <p>Only be used by an admistrator.</p>
+            <h1 className="display-3">Inspection App</h1>
+            <p className="lead">Research and add easily and fastly</p>
+            <ModalConnect sendData={this.getData.bind(this)} connected={bgColor} isConnected={this.state.connected} />
+           <hr className="my-2" />
+           <p>Add feature only be used by an admistrator, please connect with admin account</p>
              <h6>With this app you can ...</h6>
              <ButtonGroup size="lg">
                   <Button className="button_home" onClick={() => { this.toggle('2'); }} color="primary">Research</Button>
                   <Button className="button_home" onClick={() => { this.toggle('3'); }} color="primary">Add</Button>
-                  <Button className="button_home" onClick={() => { this.toggle('4'); }} color="primary">Analyze</Button>
+                <Button className="button_home" onClick={() => { this.toggle('4'); }} color="primary">Request</Button>
             </ButtonGroup>
            </Jumbotron>
 
@@ -96,7 +109,8 @@ class App extends React.Component {
             <Add />
           </TabPane>
           <TabPane tabId="4">
-            <h1 className="title_tab"> Analyze Inspection </h1>
+            <h1 className="title_tab"> Request Inspection </h1>
+          <Request />
           </TabPane>
 
         </TabContent>

@@ -100,6 +100,7 @@ class Add extends React.Component {
   }
 
   onChangeInspection = (event) => {
+    console.log("done")
     this.state.inspectionInfo[event.target.name] = event.target.value;
     console.log(this.state)
     this.currentStatePercent()
@@ -121,8 +122,10 @@ class Add extends React.Component {
     if(this.state.resaurantPercent === 100 && this.state.resaurantPercent === 100){
     var jsonResult = this.state.inspectionInfo
     jsonResult["restaurant"] = this.state.restaurantInfo
+    if(jsonResult.idRestaurant == null){
+      jsonResult.idRestaurant = jsonResult.restaurant.zipcode + jsonResult.restaurant.phone
+    }
     console.log(jsonResult)
-
     request(createOption(jsonResult), function(err, res, body) {
      if (res && (res.statusCode === 200 || res.statusCode === 201)) {
        console.log(body);
@@ -267,13 +270,11 @@ class Add extends React.Component {
         {/*Inspections information*/}
         <Col sm={12}>
         <Row>
-
               <Progress bar color="info" value={this.state.inspectionPercent/3}><h2> {Math.round(this.state.inspectionPercent)+"%"} </h2> </Progress>
-
         <Col>
-        <h2 className="inspection_info" > Inspection Information</h2>
+        <h2 className="inspection_info" >Inspection Information</h2>
         <FormGroup row>
-         <Label for="date" sm={3}>Dates</Label>
+         <Label for="date" sm={3}>Date</Label>
          <Col sm={9}>
               <Input type="date" name="inspectionDate" onChange={this.onChangeInspection}/>
          </Col>
@@ -281,31 +282,31 @@ class Add extends React.Component {
         <FormGroup row>
           <Label for="violationCode" sm={3}>violationCode</Label>
           <Col sm={9}>
-            <Input onChange={this.props.onChange} type="text" name="violationCode"/>
+            <Input onChange={this.onChangeInspection} type="text" name="violationCode"/>
           </Col>
         </FormGroup>
         <FormGroup row>
           <Label for="violationDescription" sm={3}>violationDescription</Label>
           <Col sm={9}>
-            <Input onChange={this.props.onChange} type="text" name="violationDescription"/>
+            <Input onChange={this.onChangeInspection} type="text" name="violationDescription"/>
           </Col>
         </FormGroup>
         <FormGroup row>
           <Label for="criticalFlag" sm={3}>Type</Label>
           <Col sm={9}>
-            <Input onChange={this.props.onChange} type="text" name="criticalFlag" />
+            <Input onChange={this.onChangeInspection} type="text" name="criticalFlag" />
           </Col>
         </FormGroup>
         <FormGroup row>
           <Label for="score" sm={3}>Score</Label>
           <Col sm={9}>
-            <Input onChange={this.props.onChange} type="text" name="score"/>
+            <Input onChange={this.onChangeInspection} type="text" name="score"/>
           </Col>
         </FormGroup>
         <FormGroup row>
           <Label for="grade" sm={3}>Grade</Label>
           <Col sm={9}>
-            <Input onChange={this.props.onChange} type="text" name="grade"/>
+            <Input onChange={this.onChangeInspection} type="text" name="grade"/>
           </Col>
         </FormGroup>
 
