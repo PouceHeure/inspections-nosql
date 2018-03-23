@@ -406,7 +406,7 @@ app.get('/inspections/read', function(req, res) {
     // the request is ready, we do it
     dbo.collection(mongodbConfig.table).aggregate(aggs).limit(limit).toArray(function(err, result) {
       if (err) throw err;
-      res.json(result) // send the rrequest result
+      res.json(result) // send the rrequestats result
       db.close(); // close the connection
     });
   });

@@ -85,8 +85,3 @@ class Cards extends Component {
 }
 
 export default Cards;
-
-
-
-
-//export default App;
