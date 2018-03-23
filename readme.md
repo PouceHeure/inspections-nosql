@@ -21,12 +21,12 @@ This project is split in 2 parts:
 
 1. Update the database : ```
   mongoimport –db inspections –collection restaurant –drop –file inspectionsRestaurant.json ```
-:warning: If you change the database name and table, please change the mongodb-config at [config-mongodb]("/back-end/mongodb-config.json")
+:warning: If you change the database name and table, please change the mongodb-config at [config-mongodb](/back-end/mongodb-config.json)
 
 
-2. Go (with terminal) in the [api folder]("/back-end") ```npm install```
+2. Go (with terminal) in the [api folder](/back-end) ```npm install```
 
-3. Go (with terminal) in the [front folder]("/front/inspections-app") ```npm install```
+3. Go (with terminal) in the [front folder](/front/inspections-app) ```npm install```
 
 ### Installations are finished, we can now launch the project.
 
@@ -38,7 +38,7 @@ This project is split in 2 parts:
 - move to the folder react : ```cd front/inspections-app/ ```
 - execute this command :  ``` npm start ```
 
-:information_source: An API doc is available open this [file]("/doc/api/index.html") with your browser  
+:information_source: An API doc is available open this [file](/doc/api/index.html) with your browser  
 
 :warning: Please keep terminal open until you finish
 
