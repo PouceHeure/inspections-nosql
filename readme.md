@@ -50,12 +50,26 @@ This project is split in 2 parts:
 
 ## Results
 
+#### Home Page
+
 ![Alt text](/screens/screen01.jpeg?raw=true "")
+
+#### Research Page
 
 ![Alt text](/screens/screen02.jpeg?raw=true "")
 
+#### Stats pop-up
+
+![Alt text](/screens/screen06.jpeg?raw=true "")
+
+#### Login pop-up
+
 ![Alt text](/screens/screen03.jpeg?raw=true "")
 
+#### Add inspection page
+
 ![Alt text](/screens/screen04.jpeg?raw=true "")
+
+#### Request page
 
 ![Alt text](/screens/screen05.jpeg?raw=true "")
