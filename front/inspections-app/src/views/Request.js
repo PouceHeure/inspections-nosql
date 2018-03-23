@@ -5,12 +5,12 @@ import configAPI from './../config/api_config.json';
 
 import FormsRequest from './../components/forms/FormsRequest'
 
+
 class FormsResearch extends React.Component {
 
   render(){
     return (
       <div>
-
             <FormsRequest />
       </div>
     )

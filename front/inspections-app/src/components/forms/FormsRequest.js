@@ -3,7 +3,9 @@ import { Col, Button, Form, FormGroup, Label, Input,Row } from 'reactstrap';
 
 import ReactJson from 'react-json-view'
 import configAPI from './../../config/api_config.json';
+import './../../App.css';
 
+import ModalExampleRequest from './../modals/ModalExampleRequest'
 
 const urlQuery = configAPI.url_base+configAPI.post_query
 
@@ -39,19 +41,7 @@ class FormsResearch extends React.Component {
     };
     this.onChange = this.onChange.bind(this);
     this.onClick = this.onClick.bind(this);
-
-    //JSON.parse("{\"$match\":{\"restaurant.name\":\"Toast\"}}")
-
-    //this.props.sendData(true);
   }
-
-//[{"$match":{"restaurant.name":"Toast"}}]
-// {
-
-
-
-
-
 
 
   stringToArrayJSON(value){
@@ -125,8 +115,15 @@ class FormsResearch extends React.Component {
         <Label for="exampleText">Json Request</Label>
       <Input type="textarea" name="query" onChange={this.onChange}/>
       </FormGroup>
-       <Button onClick={this.onClick}>Request</Button>
-    </Col>
+      <Row>
+        <Col sm={2}>
+          <Button onClick={this.onClick}>Request</Button>
+        </Col>
+        <Col sm={2}>
+          <ModalExampleRequest buttonLabel="Example"/>
+      </Col>
+      </Row>
+  </Col>
     <Col xs="6" sm={{ size: 6, offset: 0 }}>
       <ReactJson src={this.state.response} />
     </Col>

@@ -8,6 +8,7 @@ import {ButtonGroup, Jumbotron,TabContent, TabPane, Nav, NavItem, NavLink,  Butt
 import classnames from 'classnames';
 
 const debugMode = false;
+const defaultHomePage = '1';
 
 
 class App extends React.Component {
@@ -16,7 +17,7 @@ class App extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      activeTab: '1',
+      activeTab: defaultHomePage,
       connected: false,
       tryToConnect: false
     };

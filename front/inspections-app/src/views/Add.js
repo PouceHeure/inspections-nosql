@@ -32,15 +32,22 @@ class Add extends React.Component {
       inspectionInfo : {},
       verifyInfo : {},
       inspectionPercent : 0,
-      resaurantPercent : 0
+      resaurantPercent : 0,
+      add : 0
     };
   }
 
   currentStatePercent(){
-      var currentInspect = Object.keys(this.state.inspectionInfo).length;
-      this.setState({inspectionPercent : (currentInspect/6*100)})
       var currentResto = Object.keys(this.state.restaurantInfo).length;
       this.setState({resaurantPercent : (currentResto/7*100)})
+      var currentInspect = Object.keys(this.state.inspectionInfo).length;
+      if(this.state.addRestaurant){
+        this.setState({inspectionPercent : (currentInspect/6*100)})
+      }else{
+        this.setState({inspectionPercent : (currentInspect/7*100)})
+      }
+
+
   }
 
 
@@ -128,9 +135,11 @@ class Add extends React.Component {
     console.log(jsonResult)
     request(createOption(jsonResult), function(err, res, body) {
      if (res && (res.statusCode === 200 || res.statusCode === 201)) {
-       console.log(body);
+       this.setState({add:1})
+     }else{
+       this.setState({add:-1})
      }
-   });
+   }.bind(this));
    }else{
       alert("Give more information")
    }
@@ -158,6 +167,26 @@ class Add extends React.Component {
 
     }
 
+
+    let bgColorAdd = "info"
+
+    switch (this.state.add) {
+      case 0:
+          bgColorAdd = "info"
+        break;
+
+      case 1:
+          bgColorAdd = "success"
+          break;
+
+      case -1:
+          bgColorAdd = "danger"
+          break
+
+      default:
+          bgColorAdd = "info"
+
+    }
     return (
       <Form onSubmit={this.onSubmitAdd.bind(this)}>
       <Col sm={{size:8,offset:2}}>
@@ -313,7 +342,7 @@ class Add extends React.Component {
         {/* Submit part */}
          <FormGroup row>
            <Col>
-             <Button>Submit</Button>
+             <Button color={bgColorAdd} >Submit</Button>
            </Col>
          </FormGroup>
          </Col>

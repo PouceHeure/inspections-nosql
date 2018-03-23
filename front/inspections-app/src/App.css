@@ -89,3 +89,7 @@
 .body_tab{
   margin: 10px;
 }
+
+textarea{
+  height: 200px;
+}
