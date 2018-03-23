@@ -2,14 +2,14 @@
 ------
 
 ## Structure project
-The project uses :
+The project uses:
 - mongodb for storing the dataset
 - react + node js front side
 - node js back side
 
 :warning: You have to install (if you hasn't already installed):
-- mongodb - more information : [official site](https://www.mongodb.com/)
-- node js - more information : [official site](https://nodejs.org/en/)
+- mongodb - more information: [official site](https://www.mongodb.com/)
+- node js - more information: [official site](https://nodejs.org/en/)
 
 This project is split in 2 parts:
 - back-end side
@@ -19,7 +19,7 @@ This project is split in 2 parts:
 
 ## Getting started
 
-1. Update the database : ```
+1. Update the database: ```
   mongoimport –db inspections –collection restaurant –drop –file inspectionsRestaurant.json ```
 :warning: If you change the database name and table, please change the mongodb-config at [config-mongodb](/back-end/mongodb-config.json)
 
@@ -35,8 +35,14 @@ This project is split in 2 parts:
 2. Launch the api:```node back-end/api.js ```
 
 3. Launch the front:
-- move to the folder react : ```cd front/inspections-app/ ```
-- execute this command :  ``` npm start ```
+- move to the folder react: ```cd front/inspections-app/ ```
+- execute this command:  ``` npm start ```
+
+:cop: The login administrator:
+- login: admin
+- password: admin
+
+:information_source: If you want to change login edit this  [file](/front/inspection-app/src/config/login.json)  
 
 :information_source: An API doc is available open this [file](/doc/api/index.html) with your browser  
 
