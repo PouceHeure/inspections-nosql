@@ -99,3 +99,53 @@
  * @apiSuccess{String} Response element added
  *
  */
+
+
+ /**
+  * @api {POST} /inspections/query/find find query on inspection database.
+  * @apiName InspectionAPI_query_find
+  * @apiGroup Admin User Application
+  *
+  * @apiHeader {Content-Type} application/json
+  * @apiParam {Object} q it's the json find query
+  *
+  *
+  * @apiExample request example
+  *         endpoint: /inspections/query/find
+  *         header : Content-Type:application/json
+  *
+  *         body:
+  *          {
+                "idRestaurant":12
+             }
+  *
+  * @apiSuccess{Object} Response the query response
+  *
+  */
+
+  /**
+   * @api {POST} /inspections/query/aggregate aggregate query on inspection database.
+   * @apiName InspectionAPI_query_query
+   * @apiGroup Admin User Application
+   *
+   * @apiHeader {Content-Type} application/json
+   * @apiParam {Object} q it's the array of json querry query
+   *
+   *
+   * @apiExample request example
+   *         endpoint: /inspections/query/find
+   *         header : Content-Type:application/json
+   *
+   *         body:
+   *              [{
+   *        	       "$group":
+   *          	        {
+   *                    "_id":{"id":"$idRestaurant"},
+   *                    "time":{"$sum":1}
+   *                  	 }
+   *               }]
+   *
+   *
+   * @apiSuccess{Object} Response the query response
+   *
+   */
