@@ -42,7 +42,7 @@ This project is split in 2 parts:
 - login: admin
 - password: admin
 
-:information_source: If you want to change login edit this  [file](/front/inspection-app/src/config/login.json)  
+:information_source: If you want to change login edit this  [file](/front/inspections-app/src/config/login.json)  
 
 :information_source: An API doc is available open this [file](/doc/api/index.html) with your browser  
 
