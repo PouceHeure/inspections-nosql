@@ -27,6 +27,8 @@ class ModalConnect extends React.Component {
       this.setState({
         modal: !this.state.modal
       });
+    }else{
+      this.props.sendData(false)
     }
   }
 
@@ -41,14 +43,16 @@ class ModalConnect extends React.Component {
     return(pass === loginConnection.password && login === loginConnection.login)
   }
 
-  //https://stackoverflow.com/questions/42917854/pass-value-from-child-to-parent-component-in-react
-
   render() {
 
+    let nameButton = "login"
+    if(this.props.isConnected){
+      nameButton = "Disconnect"
+    }
 
     return (
       <div>
-        <Button color = {this.props.connected} onClick={this.toggle}>Login</Button>
+        <Button color = {this.props.connected} onClick={this.toggle}>{nameButton}</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Connect</ModalHeader>
           <ModalBody>

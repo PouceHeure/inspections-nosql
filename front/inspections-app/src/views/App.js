@@ -71,17 +71,19 @@ class App extends React.Component {
               Add
             </NavLink>
           </NavItem>
+          <NavItem>
           <NavLink
             className={classnames({ active: this.state.activeTab === '4' })}
             onClick={() => { this.toggle('4'); }}>
             Request
           </NavLink>
+          </NavItem>
+
 
           <NavItem>
-            <NavLink>
             <ModalConnect sendData={this.getData.bind(this)} isConnected={this.state.connected} connected={bgColor} />
-          </NavLink>
-        </NavItem>
+          </NavItem>
+
 
         </Nav>
         <TabContent activeTab={this.state.activeTab}>

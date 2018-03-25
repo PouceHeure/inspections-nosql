@@ -56,7 +56,13 @@ This project is split in 2 parts:
 
 #### Research Page
 
+##### User access
+
 ![Alt text](/screens/screen02.jpeg?raw=true "")
+
+##### Admin access
+
+![Alt text](/screens/screen07.jpeg?raw=true "")
 
 #### Stats pop-up
 
