@@ -10,8 +10,6 @@ var app = express();
 
 const bodyParser = require('body-parser');
 
-
-
 //app.use(bodyParser);
 app.use(function(req, res, next) {
   var allowedOrigins = ['http://localhost:3000', 'http://127.0.0.1:3000'];
@@ -360,12 +358,12 @@ app.get('/inspections/read', function(req, res) {
   // arguments are stored and anaylzed
   var limit = req.query.limit != null ? parseInt(req.query.limit) : 10
   var idRestaurant = req.query.idRestaurant != null ? parseInt(req.query.idRestaurant) : null
-  var idInspection = req.query.idInspection != null ? req.query.idInspection : null
-  var date = req.query.date != null ? req.query.date : null
-  var type = req.query.type != null ? req.query.type : null
+  var idInspection = req.query.idInspection
+  var date = req.query.date
+  var type = req.query.type
   var sortScore = req.query.score != null ? parseInt(req.query.score) : 0
-  var name = req.query.name != null ? req.query.name : null
-  var borough = req.query.borough != null ? req.query.borough : null
+  var name = req.query.name
+  var borough = req.query.borough
 
   // after taking arguments we do the request mongodbside
   MongoClient.connect(urlDB, function(err, db) {

@@ -41,7 +41,7 @@ class Research extends React.Component {
         <div>
           <Row>
           <Col xs="6" sm="3" className="research" style={{backgroundColor:"#EEE"}}>
-            <FormsResearch onSubmit={this.onSubmit} onChange={this.onChange}/>
+            <FormsResearch connected={this.props.connected} onSubmit={this.onSubmit} onChange={this.onChange}/>
           </Col>
           <Col xs="6" sm={{ size: 9, offset: 3 }}>
             <Cards ref={instance => { this.child = instance;}} />

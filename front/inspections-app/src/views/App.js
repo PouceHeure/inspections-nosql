@@ -103,7 +103,7 @@ class App extends React.Component {
           </TabPane>
           <TabPane tabId="2">
             <h1 className="title_tab"> Research Inspection </h1>
-            <Research />
+          <Research connected={this.state.connected} />
           </TabPane>
           <TabPane tabId="3">
             <h1 className="title_tab"> Add Inspection </h1>

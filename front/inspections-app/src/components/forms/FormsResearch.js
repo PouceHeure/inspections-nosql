@@ -6,6 +6,11 @@ class FormsResearch extends React.Component {
   render() {
     return (
       <Form onSubmit={this.props.onSubmit}>
+
+        {
+        this.props.connected ?
+        <div>
+        <h3>ID</h3>
         <FormGroup row>
           <Label for="idInspection" sm={5}>Id Inspection</Label>
           <Col sm={7}>
@@ -18,6 +23,12 @@ class FormsResearch extends React.Component {
             <Input onChange={this.props.onChange} type="text" name="idResaurant" placeholder="string" />
           </Col>
         </FormGroup>
+      </div>
+        : null
+      }
+
+        <h3>Information Restaurant</h3>
+
         <FormGroup row>
           <Label for="name" sm={3}>Name</Label>
           <Col sm={9}>
@@ -42,6 +53,7 @@ class FormsResearch extends React.Component {
             <Input onChange={this.props.onChange} type="text" name="date" placeholder="yyyy" />
           </Col>
         </FormGroup>
+        <h3>Limitation</h3>
         <FormGroup row>
          <Label for="exampleSelectMulti" sm={3}>Limit</Label>
          <Col sm={9}>
