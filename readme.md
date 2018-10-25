@@ -52,7 +52,11 @@ This project is split in 2 parts:
 
 #### Home Page
 
-![Alt text](/screens/screen01.jpeg?raw=true "")
+![Alt text](screens/screen01.jpeg?raw=true "")
+
+<!--img src="screens/screen01.jpeg" width=800 />![](screens/screen01.jpeg)-->
+
+
 
 #### Research Page
 
