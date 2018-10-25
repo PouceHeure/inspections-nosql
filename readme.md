@@ -61,25 +61,19 @@ This project is split in 2 parts:
 #### Research Page
 
 ##### User access
-
-![Alt text](/screens/screen02.jpeg?raw=true "")
+![](screens/screen02.jpeg)
 
 ##### Admin access
-
-![Alt text](/screens/screen07.jpeg?raw=true "")
+![](screens/screen07.jpeg)
 
 #### Stats pop-up
-
-![Alt text](/screens/screen06.jpeg?raw=true "")
+![](screens/screen06.jpeg)
 
 #### Login pop-up
-
-![Alt text](/screens/screen03.jpeg?raw=true "")
+![](screens/screen03.jpeg)
 
 #### Add inspection page
-
-![Alt text](/screens/screen04.jpeg?raw=true "")
+![](screens/screen04.jpeg)
 
 #### Request page
-
-![Alt text](/screens/screen05.jpeg?raw=true "")
+![](screens/screen05.jpeg)
